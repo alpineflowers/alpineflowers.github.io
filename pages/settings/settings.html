@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+  <form id="settings-form1">
+    <ion-item id="settings-range1">
+      <ion-range min="0" max="100" step="1" color="positive" value="50">
+        <ion-label range-left>
+          Range
+        </ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-item id="settings-toggle1">
+      <ion-label>
+        Toggle
+      </ion-label>
+      <ion-toggle color="positive" checked="false"></ion-toggle>
+    </ion-item>
+  </form>
+  <button id="settings-button1" ion-button color="positive" block on-click="goToHome()">
+    Tap me!
+  </button>
+</ion-content>
