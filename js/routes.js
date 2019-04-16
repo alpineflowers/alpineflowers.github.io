@@ -72,6 +72,16 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  .state('tabsController.contactUs', {
+    url: '/contact',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/contactUs.html',
+        controller: 'contactUsCtrl'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/home/home')
 
 
