@@ -19,10 +19,27 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  /* 
+    The IonicUIRouter.js UI-Router Modification is being used for this route.
+    To navigate to this route, do NOT use a URL. Instead use one of the following:
+      1) Using the ui-sref HTML attribute:
+        ui-sref='tabsController.identificationFeatures'
+      2) Using $state.go programatically:
+        $state.go('tabsController.identificationFeatures');
+    This allows your app to figure out which Tab to open this page in on the fly.
+    If you're setting a Tabs default page or modifying the .otherwise for your app and
+    must use a URL, use one of the following:
+      /home/tab2/IDfeatures
+      /home/tab3/IDfeatures
+  */
   .state('tabsController.identificationFeatures', {
     url: '/IDfeatures',
     views: {
       'tab2': {
+        templateUrl: 'templates/identificationFeatures.html',
+        controller: 'identificationFeaturesCtrl'
+      },
+      'tab3': {
         templateUrl: 'templates/identificationFeatures.html',
         controller: 'identificationFeaturesCtrl'
       }
