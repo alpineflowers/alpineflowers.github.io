@@ -1,4 +1,4 @@
-angular.module('app.routes', [])
+angular.module('app.routes', ['ionicUIRouter'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -9,43 +9,70 @@ angular.module('app.routes', [])
   $stateProvider
     
 
-      .state('tabsController.cameraTabDefaultPage', {
-    url: '/page2',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/cameraTabDefaultPage.html',
-        controller: 'cameraTabDefaultPageCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.cartTabDefaultPage', {
-    url: '/page3',
+      .state('tabsController.alpineFlowers', {
+    url: '/home',
     views: {
       'tab2': {
-        templateUrl: 'templates/cartTabDefaultPage.html',
-        controller: 'cartTabDefaultPageCtrl'
+        templateUrl: 'templates/alpineFlowers.html',
+        controller: 'alpineFlowersCtrl'
       }
     }
   })
 
-  .state('tabsController.cloudTabDefaultPage', {
-    url: '/page4',
+  .state('tabsController.identificationFeatures', {
+    url: '/IDfeatures',
     views: {
-      'tab3': {
-        templateUrl: 'templates/cloudTabDefaultPage.html',
-        controller: 'cloudTabDefaultPageCtrl'
+      'tab2': {
+        templateUrl: 'templates/identificationFeatures.html',
+        controller: 'identificationFeaturesCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.botanicalTerms', {
+    url: '/glossary',
+    views: {
+      'tab2': {
+        templateUrl: 'templates/botanicalTerms.html',
+        controller: 'botanicalTermsCtrl'
       }
     }
   })
 
   .state('tabsController', {
-    url: '/page1',
+    url: '/home',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/page1/page2')
+  /* 
+    The IonicUIRouter.js UI-Router Modification is being used for this route.
+    To navigate to this route, do NOT use a URL. Instead use one of the following:
+      1) Using the ui-sref HTML attribute:
+        ui-sref='tabsController.plantName'
+      2) Using $state.go programatically:
+        $state.go('tabsController.plantName');
+    This allows your app to figure out which Tab to open this page in on the fly.
+    If you're setting a Tabs default page or modifying the .otherwise for your app and
+    must use a URL, use one of the following:
+      /home/tab2/plantnames
+      /home/tab1/plantnames
+  */
+  .state('tabsController.plantName', {
+    url: '/plantnames',
+    views: {
+      'tab2': {
+        templateUrl: 'templates/plantName.html',
+        controller: 'plantNameCtrl'
+      },
+      'tab1': {
+        templateUrl: 'templates/plantName.html',
+        controller: 'plantNameCtrl'
+      }
+    }
+  })
+
+$urlRouterProvider.otherwise('/home/home')
 
 
 });
